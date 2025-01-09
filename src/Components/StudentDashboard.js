@@ -13,8 +13,8 @@ const StudentDashboard = () => {
   let result =  JSON.parse(localStorage.getItem("studentCourses"));
   
   useEffect(()=>{
-    setDisplayCourses(result)
-  },[])
+    setDisplayCourses(result || [])
+  },[setDisplayCourses])
   
 
   const pickCourse = (i)=>{
@@ -24,7 +24,7 @@ const StudentDashboard = () => {
 
   }
 
-  const total = displayCourses.reduce((acc, each) => acc + parseInt(each.unit), 0)
+  const total = (displayCourses || []).reduce((acc, each) => acc + parseInt(each.unit || 0,10), 0)
   return (
     <div className='ml-4'>
       <header className='flex items-center justify-between mx-6'>

@@ -10,16 +10,21 @@ const Login = () => {
 
 
   const login = async()=>{
-    let result = await axios.post("http://127.0.0.1:5000/studentLogin", {loginmatricNum, loginPassword})
+    try {
+      let result = await axios.post("http://127.0.0.1:5000/student_details/studentLogin", {loginmatricNum, loginPassword})
     console.log(result.data);
     localStorage.setItem("myJwtToken", JSON.stringify(result.data))
     
-      // if(result.data === "details are correct"){
-      //       navigate ("/studentdashboard");
-      // }
-      // else{
-      // alert ("incorrect details");
-      // }
+      if(result.data === "correct details"){
+            // navigate ("/studentdashboard");
+      }
+      else{
+      alert ("incorrect details");
+      }
+    } catch (error) {
+      console.log("error logging in", error);
+      
+    }
     
   }
   

@@ -33,6 +33,7 @@ function App() {
           <Link to='/' >Home</Link>
           <Link to='/studentregistration'>Register</Link>
           <Link to='/login'>login</Link>
+          <Link to='/staffregistration'>register as a staff</Link>
           <Link to='/stafflogin'>login as a staff</Link>
           </div>
        </nav>
